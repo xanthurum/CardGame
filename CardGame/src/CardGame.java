@@ -63,7 +63,7 @@ public class CardGame extends JFrame implements KeyListener
 	{
 		printF();
 		
-		if(deckA.firstNum() > deckB.firstNum())
+		if(deckA.firstNum() < deckB.firstNum())
 		{
 			deckA.add(deckA.firstNum());
 			deckA.add(deckB.firstNum());
