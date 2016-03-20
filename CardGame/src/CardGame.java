@@ -16,6 +16,7 @@ public class CardGame extends JFrame implements KeyListener
 	{
 		deckA = new Deck();
 		deckB = new Deck();
+		print();
 		
 		panel = new JPanel();
 		frame = new JFrame();
@@ -44,11 +45,11 @@ public class CardGame extends JFrame implements KeyListener
 	{
 		if (e.getKeyCode() == KeyEvent.VK_ENTER)
 		{
-			print();
+			play();
 		}
 		else if(e.getKeyCode() == KeyEvent.VK_WINDOWS)
 		{
-			
+			while(true) play();
 		}
 	}
 
@@ -58,12 +59,49 @@ public class CardGame extends JFrame implements KeyListener
 		
 	}
 	
+	public void play()
+	{
+		printF();
+		
+		if(deckA.firstNum() > deckB.firstNum())
+		{
+			deckA.add(deckA.firstNum());
+			deckA.add(deckB.firstNum());
+			deckA.delete();
+			deckB.delete();
+			ifGameOver();
+			print();
+		}
+		else
+		{
+			deckB.add(deckA.firstNum());
+			deckB.add(deckB.firstNum());
+			deckA.delete();
+			deckB.delete();
+			ifGameOver();
+			print();
+		}
+	}
 	public void print()
 	{
 		System.out.print("deck A : ");
 		deckA.print();
 		System.out.print("deck B : ");
 		deckB.print();
+	}
+	
+	public void printF()
+	{
+		System.out.println("deck A : " + deckA.firstNum() + " versus " +"deck B : " + deckB.firstNum());
+	}
+	
+	public void ifGameOver()
+	{
+		if(deckA.size() == 0 || deckB.size() == 0)
+		{
+			System.out.println("		GAME  OVER		");
+			System.exit(0);
+		}
 	}
 
 }

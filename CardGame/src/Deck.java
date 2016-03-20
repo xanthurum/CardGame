@@ -95,5 +95,10 @@ public class Deck {
 	{
 		return first.getNum();
 	}
+	
+	public int size()
+	{
+		return size;
+	}
 
 }
