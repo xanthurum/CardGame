@@ -1,13 +1,13 @@
 
 public class Node {
 
-	private int num, add;
+	private int num;
 	private Node next;
 	
-	public Node(int numb, int addr) 
+	public Node(int numb, Node nex) 
 	{
 		num = numb;
-		add = addr;
+		next = nex;
 	}
 	
 	public int getNum()
@@ -15,10 +15,13 @@ public class Node {
 		return num;
 	}
 	
-	public int getAdd()
+	public Node getNext()
 	{
-		return add;
+		return next;
 	}
 	
-
+	public void setNext(Node nex)
+	{
+		next = nex;
+	}
 }

@@ -7,6 +7,7 @@ public class Deck {
 	
 	public Deck() 
 	{
+		last = new Node(0,null);
 		fill();
 	}
 
@@ -17,17 +18,18 @@ public class Deck {
 		return ran;
 	}
 	
-	private void print(int[] array)
+	public void print()
 	{
-		for(int i = 0; i < 13; i++)
+		Node temp = first;
+		while(temp != null)
 		{
-			System.out.print(" " + array[i]);
+			System.out.print(temp.getNum() + " ");
+			temp = temp.getNext();
 		}
+		System.out.println();
 	}
 	
-	
-	
-	public void fill()
+	private void fill()
 	{
 		int[] array = new int[13];
 		int ran = 0;
@@ -42,7 +44,22 @@ public class Deck {
 			}
 			else i--;
 		}
-		print(array);
+		
+		for(int i = 0; i < 13; i++)
+		{
+			//Node temp = null;
+			
+			if(i == 0) 
+				{
+					first = new Node(array[i], null);
+					last = first;
+					size++;
+				}
+			else
+				{
+					add(array[i]);
+				}
+		}
 	}
 	
 	private boolean check(int x,int[] array)
@@ -57,4 +74,26 @@ public class Deck {
 		}
 		return result;		
 	}
+	
+	public void add(int num)
+	{
+		Node temp = new Node(num, null);
+		last.setNext(temp);
+		last = temp;
+		size++;
+	}
+	
+	public void delete()
+	{
+		Node temp = first.getNext();
+		first.setNext(null);
+	    first = temp;
+	    size--;
+	}	
+	
+	public int firstNum()
+	{
+		return first.getNum();
+	}
+
 }
