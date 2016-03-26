@@ -10,14 +10,17 @@ public class CardGame extends JFrame implements KeyListener
 	Play game;
 	private JTextField area;
 	private JPanel panel;
-	private JFrame frame;
 
+	/**
+	 * constructor for CardGame
+	 * constructs a new game
+	 * constructs a user interface with a key-listener
+	 */
 	public CardGame() 
 	{
 		game = new Play();
 		
 		panel = new JPanel();
-		frame = new JFrame();
 		area = new JTextField(5);
 		setVisible(true);
 		setSize(100,100);
@@ -27,17 +30,27 @@ public class CardGame extends JFrame implements KeyListener
 		area.addKeyListener(this);			
 	}
 
+	/**
+	 * main calls the CardGame constructor
+	 * @param args
+	 */
 	public static void main(String[] args) 
 	{
 		new CardGame();
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+	public void keyTyped(KeyEvent e) 
+	{
+		// TODO Auto-generated method stub	
 	}
 
+	/**
+	 * waits for a key event
+	 * "enter" key for manual playing
+	 * "control" key for automatic playing
+	 * @param e
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) 
 	{
@@ -45,16 +58,16 @@ public class CardGame extends JFrame implements KeyListener
 		{
 			game.play();
 		}
-		else if(e.getKeyCode() == KeyEvent.VK_WINDOWS)
+		else if(e.getKeyCode() == KeyEvent.VK_CONTROL)
 		{
 			while(true) game.play();
 		}
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
+	public void keyReleased(KeyEvent e) 
+	{
 		// TODO Auto-generated method stub
-		
 	}
 	
 	

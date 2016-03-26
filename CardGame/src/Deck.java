@@ -6,7 +6,7 @@ public class Deck {
 	private int size;
 	/**
 	 * constructor for the Deck class
-	 * witch is a linked list
+	 * which is a linked list
 	 */
 	public Deck() 
 	{

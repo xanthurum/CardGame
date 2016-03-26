@@ -2,14 +2,21 @@
 public class Play 
 {
 	private Deck deckA,deckB;
-	
+	/**
+	 * constructor for the Play class
+	 * includes a first print to the console as a start
+	 */
 	public Play()
 	{
 		deckA = new Deck();
 		deckB = new Deck();
 		print();		
 	}
-	
+	/**
+	 * compares both playing cards
+	 * moves the cards to the loser
+	 * uses at the start printF and at the end print()
+	 */
 	public void play()
 	{
 		printF();
@@ -33,6 +40,9 @@ public class Play
 			print();
 		}
 	}
+	/**
+	 * prints both deck of cards
+	 */
 	private void print()
 	{
 		System.out.print("deck A : ");
@@ -40,12 +50,17 @@ public class Play
 		System.out.print("deck B : ");
 		deckB.print();
 	}
-	
+	/**
+	 * prints the playing numbers
+	 */
 	private void printF()
 	{
 		System.out.println("deck A : " + deckA.firstNum() + " versus " +"deck B : " + deckB.firstNum());
 	}
-	
+	/**
+	 * testing if the game is over
+	 * if so, the program is ended
+	 */
 	private void ifGameOver()
 	{
 		if(deckA.size() == 0 || deckB.size() == 0)
