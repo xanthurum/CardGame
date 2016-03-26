@@ -2,12 +2,14 @@
 public class Play 
 {
 	private Deck deckA,deckB;
+	private int count;
 	/**
 	 * constructor for the Play class
 	 * includes a first print to the console as a start
 	 */
 	public Play()
 	{
+		count = 0;
 		deckA = new Deck();
 		deckB = new Deck();
 		print();		
@@ -39,6 +41,7 @@ public class Play
 			ifGameOver();
 			print();
 		}
+		count++;
 	}
 	/**
 	 * prints both deck of cards
@@ -65,6 +68,8 @@ public class Play
 	{
 		if(deckA.size() == 0 || deckB.size() == 0)
 		{
+			System.out.println("		GAME  OVER		");
+			System.out.println("	    #times played : " + count + "		");
 			System.out.println("		GAME  OVER		");
 			System.exit(0);
 		}
